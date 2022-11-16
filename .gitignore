@@ -1,0 +1,8 @@
+.idea
+__pycache__
+songs
+sum
+*.mcfunction
+songs.zip
+fonts
+hit_effect
