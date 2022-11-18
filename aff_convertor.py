@@ -14,18 +14,20 @@ def get_args():
     # 演出全局设置
     args['pi'] = 3.1415926
     args['tps'] = tps
+    # 每秒音符移动格子数量
     args['default_speed_per_second'] = 200
     # 轨道基准位置：0轨正中心上面1格坐标
     args['ground_x'] = 1
     args['ground_y'] = 1
     args['ground_z'] = -20
+    # 轨道间距，影响地键、长条、天键、4k->6k的宽度
     args['ground_interval'] = 8
-    # 向轨道正/负方向推算距离
+    # 向轨道正/负方向推算距离，即渲染范围
     args['track_x_upper_limit'] = 150
     args['track_x_lower_limit'] = -10
     # 0时长arc播放密度，越高越不会断掉
     args['zero_time_arc_play_dense'] = 20
-    # 最后一个音符结束后继续播放多久
+    # 最后一个音符结束后继续播放多久，毫秒，没啥大用
     args['end_time'] = 5000
     # Arc及天键抬高高度（格）
     args['arc_raise'] = 3
@@ -38,20 +40,7 @@ def get_args():
     # 天键高度相当于多少倍地面轨道
     args['y_ratio'] = 1.2
     args['black_line_material'] = 'light_gray_stained_glass'
-    # 材料
-    # 纷争侧
-    # args['note_material'] = 'sea_lantern'
-    # args['air_material'] = 'air'
-    # args['arctap_material'] = 'beacon'
-    # args['red_arc_material'] = 'pink_stained_glass'
-    # args['red_arc_centre_material'] = 'glowstone'
-    # args['blue_arc_material'] = 'blue_stained_glass'
-    # args['blue_arc_centre_material'] = 'sea_lantern'
-    # args['green_arc_material'] = 'lime_stained_glass'
-    # args['hold_side_material'] = 'white_concrete'
-    # args['hold_centre_material'] = 'shroomlight'
-    # args['black_line_materials'] = 'light_gray_stained_glass'
-    # 光侧
+    # 材料，填写setblock/fill时所用的方块
     args['note_material'] = 'sea_lantern'
     args['air_material'] = 'air'
     args['arctap_material'] = 'pearlescent_froglight'
@@ -64,14 +53,15 @@ def get_args():
     args['hold_centre_material'] = 'sea_lantern'
     # 双押线密度，每几格渲染一个双押线粒子
     args['sky_ground_double_key_line_dense'] = 0.5
-    # 额外轨道材质
+    # 额外轨道材质，4k转6k时会用得到
     args['extend_track_center_material'] = 'white_stained_glass'
     args['extend_track_slide_material'] = 'light_gray_stained_glass'
-    # skyinput升高系数
+    # skyinput升高系数，4k转6k时会用到
     args['enwidencamera_y_increase_ratio'] = 1.61
+    # 天线particle指令的长度以及密度
     args['sky_input_particle_length'] = 5
     args['sky_input_particle_dense'] = 40
-    # 打击效果
+    # 打击效果，已经弃用
     args['hit_effect_path'] = './hit_effect/'
     args['hit_effect_type'] = 'colorless'
     args['hit_effect_text_rise'] = 1.0 # 文字相对判定点升高多少格
@@ -79,8 +69,8 @@ def get_args():
     args['hit_effect_particle_size'] = 2 # 粒子的大小
     args['hit_effect_scale'] = 128 # 多少像素塞进一格
     args['hit_effect_allow_mistake_per_channel'] = 250 # 颜色容差，三个通道均大于这个数的像素会被忽略
-
-    # arc支撑
+    # 从打击效果到这里的的参数都没有用
+    # arc支撑的材料
     args['blue_arc_support_material'] = 'blue_stained_glass_pane'
     args['red_arc_support_material'] = 'pink_stained_glass_pane'
     args['green_arc_support_material'] = 'lime_stained_glass_pane'

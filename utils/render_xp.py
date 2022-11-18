@@ -213,7 +213,7 @@ def position_infer(args, song, timings, time):
     # 基础bpm，现在bpm/基础bpm*基础流速为当前流速
     bpm_base = song['bpm_base']
     # 定位到note到达判定线时的timing参数
-    while timings[timings_pointer]['t'] < time:
+    while timings[timings_pointer]['t'] <= time:
         timings_pointer += 1
         if timings_pointer == len(timings):
             break
@@ -224,7 +224,7 @@ def position_infer(args, song, timings, time):
     # cur_time = time
     # 位移对齐
     cur_x = (time % frame_time) * timings[timings_pointer]['bpm'] * args[
-        'default_speed_per_second'] / bpm_base / 1000
+        'default_speed_per_second'] / bpm_base / 1000 + args['ground_x']
     # 逐帧反推，位置超出渲染界限的时候停止
     while args['track_x_upper_limit'] + args['ground_x'] > cur_x > args['track_x_lower_limit'] + args['ground_x']:
         # 上一帧时间和下一帧时间
