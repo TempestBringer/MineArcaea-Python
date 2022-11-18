@@ -1,6 +1,5 @@
 # MineArcaea-Python
 
-Minecraft : TempestZYTux
 Bilibili : 海马络合物
 
 将Arcaea谱面转换为包含连续执行的mcfunction的数据包以实现播放。
