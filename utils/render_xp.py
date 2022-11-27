@@ -567,8 +567,6 @@ def hold_render(args, hold, timings, song, scenecontrols):
     x_front_end_frames = x_front[0][0]
     x_tail_start_frames = x_tail[-1][0]
     x_tail_end_frames = x_tail[0][0]
-    if len(scenecontrols)>0:
-        print(scenecontrols)
     for x_frame in x_front:
         hide = hide_group(args, int(x_frame[0]), scenecontrols)
         if hide != 'True':
